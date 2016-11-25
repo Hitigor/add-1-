@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<form>
+    <p class="Txt">Enter your numbers to add "+1" to them </p>
+    <textarea name="comment" cols="50" rows="30" id="textArea" autofocus
+    placeholder="enter your telephone number" required ></textarea>
+    <input type="button" value="START"  onclick="myFunc()" id='sendBtn'> <!---->
+</form>
+
+<form name="resultForm" class="resultForm">
+    <textarea id="result" name="resultTextArea" cols="50" rows="30" placeholder="your result would appear here"></textarea>
+</form>
+
+<script>
+
+
+    function myFunc() {
+        var txtArea = document.getElementById('textArea').value.toString();
+        console.log(txtArea);
+        var txtArea1 = txtArea.trim();
+        var arr = txtArea1.split('\n');
+        var resultArr = [];
+        var elem;
+        for (var key in arr) {
+            elem = "+1" + arr[key] ;
+            resultArr.push(elem);
+        }
+        console.log(resultArr);
+      var resultTxtArea =  document.getElementById('result');
+        resultArr = resultArr.toString();
+        resultArr = resultArr.replace(/,/g," ");
+        resultTxtArea.value += resultArr;
+
+    }
+
+
+</script>
+
+
+</body>
+</html>
